@@ -3,236 +3,210 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Request a quote from Maxwell Software Solutions LLC for small business websites, software tools, automation, and IT consulting." />
-  <title>Get a Quote | Maxwell Software Solutions LLC</title>
+  <meta name="description" content="Pricing for small business websites, monthly support, and IT consulting from Maxwell Software Solutions LLC in Ohio." />
+  <title>Pricing | Maxwell Software Solutions LLC</title>
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
 
   <style>
     :root{
       --bg:#0b1220;
       --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.70);
-      --line:rgba(255,255,255,.10);
-      --panel:rgba(255,255,255,.03);
-      --panel2:rgba(0,0,0,.18);
-      --brand:#0ea5e9;
-      --shadow:0 10px 26px rgba(0,0,0,.28);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.12);
       --radius:18px;
-      --max: 980px;
+      --max:1120px;
+      --tap:44px;
+      --focus: rgba(14,165,233,.55);
     }
+
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
-        radial-gradient(900px 500px at 15% 10%, rgba(14,165,233,.18), transparent 60%),
-        radial-gradient(900px 500px at 90% 0%, rgba(31,58,138,.22), transparent 55%),
+        radial-gradient(1200px 600px at 10% 10%, rgba(14,165,233,.20), transparent 60%),
+        radial-gradient(1200px 600px at 90% 0%, rgba(31,58,138,.25), transparent 55%),
         var(--bg);
       color:var(--text);
       line-height:1.55;
     }
+
     a{ color:inherit; text-decoration:none; }
-    .container{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
+    .container{ max-width:var(--max); margin:0 auto; padding:0 20px; }
+
+    .skip{
+      position:absolute; left:-999px; top:12px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.85);
+      color:var(--text); z-index:999;
+    }
+    .skip:focus{ left:12px; outline:none; box-shadow:0 0 0 3px var(--focus); }
+
+    :focus-visible{
+      outline:none;
+      box-shadow:0 0 0 3px var(--focus);
+      border-radius:12px;
+    }
 
     header{
-      position: sticky;
-      top:0;
-      z-index:50;
+      position: sticky; top:0; z-index:30;
       backdrop-filter: blur(12px);
-      background: rgba(11,18,32,.62);
+      background: rgba(11,18,32,.72);
       border-bottom: 1px solid var(--line);
     }
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding: 12px 0;
-      flex-wrap: wrap;
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0; gap:14px; flex-wrap:wrap;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width: 220px;
+      display:flex; align-items:center; gap:12px; min-width:240px;
     }
-    .mark{
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      display:grid;
-      place-items:center;
-      font-weight: 800;
-      letter-spacing: .5px;
-      user-select:none;
+    .brand img{
+      width:40px; height:40px; object-fit:contain;
+      border-radius:10px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      flex:0 0 auto;
     }
-    .brandtext{ display:flex; flex-direction:column; line-height:1.1; }
-    .brandtext strong{ font-size: 14px; }
-    .brandtext span{ font-size: 12px; color: var(--muted); }
+    .brand .name{ display:flex; flex-direction:column; line-height:1.1; }
+    .brand .name strong{ font-size:14px; letter-spacing:.2px; }
+    .brand .name span{ font-size:12px; color:var(--muted); }
 
     nav ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      gap: 6px;
-      flex-wrap: wrap;
+      list-style:none; padding:0; margin:0;
+      display:flex; gap:6px; flex-wrap:wrap;
+      justify-content:center; align-items:center;
     }
     nav a{
-      font-size: 13px;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      display:inline-block;
+      font-size:13px; color:var(--muted);
+      padding:10px 10px; border-radius:12px;
+      border:1px solid transparent;
+      display:inline-block; min-height:var(--tap);
     }
-    nav a:hover{
-      color: var(--text);
-      background: rgba(255,255,255,.04);
-      border-color: var(--line);
+    nav a:hover{ color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04); }
+    nav a[aria-current="page"]{
+      color:var(--text);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
     }
 
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      color: var(--text);
-      font-weight: 650;
-      font-size: 13px;
-      min-height: 42px;
-      cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      font-weight:650; font-size:13px;
+      min-height:var(--tap);
+      cursor:pointer; white-space:nowrap;
     }
     .btn.primary{
-      border-color: rgba(14,165,233,.40);
+      border-color: rgba(14,165,233,.35);
       background: linear-gradient(135deg, rgba(14,165,233,.18), rgba(31,58,138,.18));
     }
     .btn:hover{ border-color: rgba(255,255,255,.22); }
 
-    main{ padding: 42px 0 28px; }
+    main{ padding-bottom: 10px; }
+    section{ padding: 22px 0; }
 
-    .banner{
-      width: min(820px, 100%);
-      height: auto;
-      display:block;
-      margin: 0 auto 18px;
+    .hero{
+      padding: 38px 0 10px;
+      background: radial-gradient(800px 400px at 50% 0%, rgba(255,255,255,.06), transparent 60%);
     }
-
     h1{
-      margin: 10px 0 10px;
-      font-size: clamp(28px, 3.2vw, 44px);
-      line-height: 1.10;
-      letter-spacing: -.5px;
-      text-align:center;
+      margin:0 0 10px;
+      font-size: clamp(26px, 3.2vw, 40px);
+      line-height:1.12;
+      letter-spacing:-.5px;
     }
-    .lead{
-      margin: 0 auto 18px;
-      max-width: 70ch;
-      color: var(--muted);
-      font-size: 15px;
-      text-align:center;
-    }
+    .sub{ margin:0; color:var(--muted); font-size:15px; max-width: 72ch; }
+    .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
 
-    .panel{
-      border: 1px solid rgba(255,255,255,.10);
-      background: var(--panel);
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: var(--shadow);
+    .section-title{
+      display:flex; justify-content:space-between; align-items:baseline;
+      gap:16px; flex-wrap:wrap; margin-bottom: 12px;
     }
+    .section-title h2{ margin:0; font-size:18px; letter-spacing:-.2px; }
+    .section-title p{ margin:0; color:var(--muted); font-size:13px; }
 
     .grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
     }
-
-    .group{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.12);
-      border-radius: 16px;
-      padding: 14px;
+    .card{
+      padding:16px;
+      border-radius:18px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.14);
     }
-    .group h2{
-      margin:0 0 10px;
-      font-size: 14px;
-      letter-spacing: -.2px;
+    .card h3{ margin:0 0 6px; font-size:14px; }
+    .card p{ margin:0; color:var(--muted); font-size:13px; }
+    .price{
+      margin-top: 10px;
+      font-size: 22px;
+      font-weight: 750;
+      letter-spacing: -.3px;
     }
-
-    label{ display:block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
-    input, textarea, select{
-      width:100%;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: var(--panel2);
-      color: var(--text);
-      outline:none;
+    .price span{
+      display:block;
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
     }
-    textarea{ min-height: 120px; resize: vertical; }
-
-    .checks{ display:grid; grid-template-columns: 1fr; gap: 10px; }
-    .check{
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-      padding: 10px 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
+    .list{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
     }
-    .check input{ width: 18px; height: 18px; margin-top: 2px; }
-    .check strong{ display:block; font-size: 13px; }
-    .check span{ display:block; font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-    .actions{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-      justify-content:flex-start;
-    }
+    .list li{ margin: 6px 0; }
 
     .note{
-      margin-top: 12px;
+      margin-top: 10px;
       color: var(--muted);
       font-size: 12px;
     }
 
     footer{
-      margin-top: 22px;
-      border-top: 1px solid var(--line);
+      padding: 18px 0 38px;
       color: var(--muted);
-      padding: 22px 0 40px;
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
     }
-    .foot{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      font-size: 12px;
+    .footer-row{
+      display:flex; align-items:center; justify-content: space-between;
+      gap:14px; flex-wrap:wrap;
     }
+    .small{ font-size:12px; }
+    .small a{ color: var(--muted); }
+    .small a:hover{ color: var(--text); }
 
     @media (max-width: 920px){
       .grid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px){
+      .container{ padding:0 16px; }
       nav ul{ justify-content:flex-start; }
+      .brand{ min-width: unset; }
     }
   </style>
 </head>
+
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header>
     <div class="container">
-      <div class="topbar">
-        <a class="brand" href="index.html" aria-label="Home">
-          <div class="mark">M</div>
-          <div class="brandtext">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="Maxwell Software Solutions LLC home">
+          <img src="assets/BusinessLogo.png" alt="Maxwell Software Solutions LLC logo" />
+          <div class="name">
             <strong>Maxwell Software Solutions LLC</strong>
             <span>Solution Software for Small Business</span>
           </div>
@@ -240,13 +214,9 @@
 
         <nav aria-label="Primary">
           <ul>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#projects">Project Types</a></li>
-            <li><a href="index.html#process">How We Work</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="pricing.html" aria-current="page">Pricing</a></li>
             <li><a href="quote.html">Get a Quote</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="policies.html">Policies</a></li>
           </ul>
         </nav>
 
@@ -255,180 +225,195 @@
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <img class="banner" src="assets/BannerLogo.png" alt="Maxwell Software Solutions LLC" onerror="this.style.display='none';" />
-
-      <h1>Get a Quote</h1>
-      <p class="lead">
-        Select what you need and share a few details. You will receive next steps and an estimate based on your scope.
-      </p>
-
-      <div class="panel">
-        <form onsubmit="return sendQuote(event)">
-          <div class="grid">
-            <div class="group">
-              <h2>Contact Information</h2>
-
-              <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div>
-                  <label for="name">Name</label>
-                  <input id="name" name="name" placeholder="Your name" required />
-                </div>
-                <div>
-                  <label for="email">Email</label>
-                  <input id="email" name="email" placeholder="you@example.com" type="email" required />
-                </div>
-              </div>
-
-              <div style="margin-top: 12px;">
-                <label for="business">Business Name (optional)</label>
-                <input id="business" name="business" placeholder="Business or organization name" />
-              </div>
-
-              <div style="margin-top: 12px;">
-                <label for="timeline">Timeline</label>
-                <select id="timeline" name="timeline" required>
-                  <option value="" selected disabled>Select a timeline</option>
-                  <option>ASAP</option>
-                  <option>1–2 weeks</option>
-                  <option>2–4 weeks</option>
-                  <option>1–2 months</option>
-                  <option>Flexible</option>
-                </select>
-              </div>
-
-              <div style="margin-top: 12px;">
-                <label for="budget">Budget Range (optional)</label>
-                <select id="budget" name="budget">
-                  <option value="" selected>Prefer not to say</option>
-                  <option>$0–$250</option>
-                  <option>$250–$500</option>
-                  <option>$500–$1,000</option>
-                  <option>$1,000–$2,500</option>
-                  <option>$2,500+</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="group">
-              <h2>What do you need?</h2>
-
-              <div class="checks">
-                <label class="check">
-                  <input type="checkbox" name="needs" value="Website (1–3 pages)" />
-                  <div>
-                    <strong>Website (1–3 pages)</strong>
-                    <span>Mobile-friendly site with a contact form and basic SEO.</span>
-                  </div>
-                </label>
-
-                <label class="check">
-                  <input type="checkbox" name="needs" value="Custom software tool" />
-                  <div>
-                    <strong>Custom software tool</strong>
-                    <span>Dashboards, portals, data tools, or internal workflow apps.</span>
-                  </div>
-                </label>
-
-                <label class="check">
-                  <input type="checkbox" name="needs" value="Automation / workflow help" />
-                  <div>
-                    <strong>Automation / workflow help</strong>
-                    <span>Reduce manual work with automation or process improvements.</span>
-                  </div>
-                </label>
-
-                <label class="check">
-                  <input type="checkbox" name="needs" value="Database setup / cleanup" />
-                  <div>
-                    <strong>Database setup / cleanup</strong>
-                    <span>Organize data, improve structure, or support reporting.</span>
-                  </div>
-                </label>
-
-                <label class="check">
-                  <input type="checkbox" name="needs" value="Consulting / on-premise support" />
-                  <div>
-                    <strong>Consulting / on-premise support</strong>
-                    <span>Workstation setup, troubleshooting, and small business IT guidance.</span>
-                  </div>
-                </label>
-
-                <label class="check">
-                  <input type="checkbox" name="needs" value="Monthly support plan" />
-                  <div>
-                    <strong>Monthly support plan</strong>
-                    <span>Ongoing help for updates, fixes, and improvements.</span>
-                  </div>
-                </label>
-              </div>
-
-              <div style="margin-top: 12px;">
-                <label for="details">Project Details</label>
-                <textarea id="details" name="details" placeholder="Describe what you need, current tools, number of pages (if website), any features, and anything else that matters." required></textarea>
-              </div>
-
-              <p class="note">
-                This form opens your email app with your request pre-filled. No account is required.
-              </p>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" type="submit">Send Quote Request</button>
-            <button class="btn" type="reset">Clear</button>
-            <a class="btn" href="index.html">Back to Home</a>
-          </div>
-        </form>
-      </div>
-
-      <footer>
-        <div class="foot">
-          <div>Maxwell Software Solutions LLC | Ohio</div>
-          <div>softwaresolutionsmaxwell@gmail.com</div>
-          <div>© <span id="year"></span> Maxwell Software Solutions LLC</div>
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <h1>Simple, starter-friendly pricing.</h1>
+        <p class="sub">
+          Clear packages for small business websites and support. If you need something outside these options,
+          request a quote and we’ll scope it properly.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="quote.html">Request a Quote</a>
+          <a class="btn" href="#support">Monthly Support</a>
         </div>
-      </footer>
-    </div>
+        <p class="note">All pricing is in USD. Final quotes depend on scope, content, and turnaround time.</p>
+      </div>
+    </section>
+
+    <section id="web">
+      <div class="container">
+        <div class="section-title">
+          <h2>Website Design Packages</h2>
+          <p>Clean, mobile-friendly sites built for small business credibility.</p>
+        </div>
+
+        <div class="grid" aria-label="Website packages">
+          <div class="card">
+            <h3>Starter Website</h3>
+            <p>Perfect for a new business that needs an online presence fast.</p>
+            <div class="price">$149 <span>1 page</span></div>
+            <ul class="list">
+              <li>Mobile-friendly layout</li>
+              <li>Basic sections (about, services, contact)</li>
+              <li>Contact link or simple form</li>
+              <li>Basic SEO setup (titles + descriptions)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Standard Website</h3>
+            <p>Most common option for local businesses.</p>
+            <div class="price">$249 <span>2 pages</span></div>
+            <ul class="list">
+              <li>Everything in Starter</li>
+              <li>Additional page (services, pricing, gallery, etc.)</li>
+              <li>Improved on-page SEO structure</li>
+              <li>Basic performance checks</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Business Website</h3>
+            <p>More room for services, FAQs, and credibility.</p>
+            <div class="price">$399 <span>3 pages</span></div>
+            <ul class="list">
+              <li>Everything in Standard</li>
+              <li>Third page (FAQ, policies, portfolio, etc.)</li>
+              <li>Better content layout + clarity</li>
+              <li>Launch checklist + handoff</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="note">
+          Optional add-ons (quoted as needed): extra pages, content writing, image sourcing, logo cleanup, advanced forms, booking, and integrations.
+        </p>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="container">
+        <div class="section-title">
+          <h2>Monthly Support Plans</h2>
+          <p>Lightweight help for updates, fixes, and small improvements.</p>
+        </div>
+
+        <div class="grid" aria-label="Support plans">
+          <div class="card">
+            <h3>Basic Support</h3>
+            <p>Best for small updates and peace of mind.</p>
+            <div class="price">$50 <span>per month</span></div>
+            <ul class="list">
+              <li>Minor content edits (text/images)</li>
+              <li>Basic troubleshooting</li>
+              <li>General guidance</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Standard Support</h3>
+            <p>For ongoing changes and small improvements.</p>
+            <div class="price">$125 <span>per month</span></div>
+            <ul class="list">
+              <li>Everything in Basic</li>
+              <li>More frequent updates</li>
+              <li>Simple feature tweaks (scoped)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Priority Support</h3>
+            <p>Faster response and higher priority queue.</p>
+            <div class="price">$200 <span>per month</span></div>
+            <ul class="list">
+              <li>Everything in Standard</li>
+              <li>Priority response window</li>
+              <li>More proactive improvements (scoped)</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="note">Support plans cover small changes. Larger features and new builds are quoted separately.</p>
+      </div>
+    </section>
+
+    <!-- IT Consulting (fixed) -->
+    <section id="it">
+      <div class="container">
+        <div class="section-title">
+          <h2>IT Consulting</h2>
+          <p>Available on request for small business technology needs.</p>
+        </div>
+
+        <div class="card">
+          <p style="margin:0; color:var(--muted); font-size:13px;">
+            IT consulting is available on a limited basis to support small business technology needs.
+            Typical requests include workstation guidance, software recommendations, troubleshooting assistance,
+            and general technical consultation.
+          </p>
+
+          <p style="margin:10px 0 0; color:var(--muted); font-size:13px;">
+            Consulting is billed hourly and scoped based on the project requirements and client budget.
+            Please contact us to discuss your needs and receive a customized estimate.
+          </p>
+
+          <div class="actions" style="margin-top:14px;">
+            <a class="btn primary" href="quote.html">Request IT Help</a>
+            <a class="btn" href="mailto:softwaresolutionsmaxwell@gmail.com?subject=IT%20Consulting%20Request%20-%20Maxwell%20Software%20Solutions">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hosting">
+      <div class="container">
+        <div class="section-title">
+          <h2>Hosting & Domains</h2>
+          <p>Hosting is typically billed directly by the provider.</p>
+        </div>
+
+        <div class="card">
+          <p style="margin:0; color:var(--muted); font-size:13px;">
+            If you already have hosting, I can deploy to your existing setup. If you need hosting, I’ll recommend an affordable provider and help you launch.
+            Hosting and domain costs are usually a pass-through charge (you pay the provider).
+          </p>
+          <ul class="list">
+            <li>Domain name: typically $10–$20/year (varies by domain)</li>
+            <li>Basic hosting: depends on provider and plan</li>
+            <li>Optional setup help: quoted if needed</li>
+          </ul>
+          <p class="note">If you want “done-for-you” setup, include it when you request a quote.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Want an exact price?</h2>
+          <p>Tell me what you need and I’ll reply with next steps.</p>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="quote.html">Get a Quote</a>
+          <a class="btn" href="mailto:softwaresolutionsmaxwell@gmail.com?subject=Pricing%20Question%20-%20Maxwell%20Software%20Solutions">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-row">
+          <div class="small">Maxwell Software Solutions LLC · Ohio · Small Business Websites & Software</div>
+          <div class="small"><a href="mailto:softwaresolutionsmaxwell@gmail.com">softwaresolutionsmaxwell@gmail.com</a></div>
+          <div class="small"><a href="policies.html">Policies</a> · © <span id="year"></span> Maxwell Software Solutions LLC</div>
+        </div>
+      </div>
+    </footer>
   </main>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    function sendQuote(e){
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const business = document.getElementById('business').value.trim();
-      const timeline = document.getElementById('timeline').value.trim();
-      const budget = document.getElementById('budget').value.trim();
-      const details = document.getElementById('details').value.trim();
-
-      const needs = Array.from(document.querySelectorAll('input[name="needs"]:checked'))
-        .map(x => x.value);
-
-      const subject = encodeURIComponent('Quote Request - Maxwell Software Solutions LLC');
-
-      const lines = [
-        'Quote Request',
-        '---------------------------',
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Business: ${business || 'N/A'}`,
-        `Timeline: ${timeline}`,
-        `Budget Range: ${budget || 'Prefer not to say'}`,
-        `Requested Services: ${needs.length ? needs.join(', ') : 'Not selected'}`,
-        '',
-        'Project Details:',
-        details
-      ];
-
-      const body = encodeURIComponent(lines.join('\n'));
-      window.location.href = `mailto:softwaresolutionsmaxwell@gmail.com?subject=${subject}&body=${body}`;
-      return false;
-    }
   </script>
 </body>
 </html>
