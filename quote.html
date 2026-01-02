@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Request a quote from Maxwell Software Solutions LLC for small business websites, software tools, automation, and IT consulting." />
+  <title>Get a Quote | Maxwell Software Solutions LLC</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --line:rgba(255,255,255,.10);
+      --panel:rgba(255,255,255,.03);
+      --panel2:rgba(0,0,0,.18);
+      --brand:#0ea5e9;
+      --shadow:0 10px 26px rgba(0,0,0,.28);
+      --radius:18px;
+      --max: 980px;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(14,165,233,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(31,58,138,.22), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
+
+    header{
+      position: sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,.62);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 220px;
+    }
+    .mark{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      display:grid;
+      place-items:center;
+      font-weight: 800;
+      letter-spacing: .5px;
+      user-select:none;
+    }
+    .brandtext{ display:flex; flex-direction:column; line-height:1.1; }
+    .brandtext strong{ font-size: 14px; }
+    .brandtext span{ font-size: 12px; color: var(--muted); }
+
+    nav ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    nav a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      display:inline-block;
+    }
+    nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+      border-color: var(--line);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight: 650;
+      font-size: 13px;
+      min-height: 42px;
+      cursor:pointer;
+    }
+    .btn.primary{
+      border-color: rgba(14,165,233,.40);
+      background: linear-gradient(135deg, rgba(14,165,233,.18), rgba(31,58,138,.18));
+    }
+    .btn:hover{ border-color: rgba(255,255,255,.22); }
+
+    main{ padding: 42px 0 28px; }
+
+    .banner{
+      width: min(820px, 100%);
+      height: auto;
+      display:block;
+      margin: 0 auto 18px;
+    }
+
+    h1{
+      margin: 10px 0 10px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.10;
+      letter-spacing: -.5px;
+      text-align:center;
+    }
+    .lead{
+      margin: 0 auto 18px;
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 15px;
+      text-align:center;
+    }
+
+    .panel{
+      border: 1px solid rgba(255,255,255,.10);
+      background: var(--panel);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .group{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .group h2{
+      margin:0 0 10px;
+      font-size: 14px;
+      letter-spacing: -.2px;
+    }
+
+    label{ display:block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    input, textarea, select{
+      width:100%;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: var(--panel2);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+
+    .checks{ display:grid; grid-template-columns: 1fr; gap: 10px; }
+    .check{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+    }
+    .check input{ width: 18px; height: 18px; margin-top: 2px; }
+    .check strong{ display:block; font-size: 13px; }
+    .check span{ display:block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      justify-content:flex-start;
+    }
+
+    .note{
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer{
+      margin-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 22px 0 40px;
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+      nav ul{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="index.html" aria-label="Home">
+          <div class="mark">M</div>
+          <div class="brandtext">
+            <strong>Maxwell Software Solutions LLC</strong>
+            <span>Solution Software for Small Business</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#projects">Project Types</a></li>
+            <li><a href="index.html#process">How We Work</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="quote.html">Get a Quote</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <a class="btn primary" href="quote.html">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <img class="banner" src="assets/BannerLogo.png" alt="Maxwell Software Solutions LLC" onerror="this.style.display='none';" />
+
+      <h1>Get a Quote</h1>
+      <p class="lead">
+        Select what you need and share a few details. You will receive next steps and an estimate based on your scope.
+      </p>
+
+      <div class="panel">
+        <form onsubmit="return sendQuote(event)">
+          <div class="grid">
+            <div class="group">
+              <h2>Contact Information</h2>
+
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" name="name" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" name="email" placeholder="you@example.com" type="email" required />
+                </div>
+              </div>
+
+              <div style="margin-top: 12px;">
+                <label for="business">Business Name (optional)</label>
+                <input id="business" name="business" placeholder="Business or organization name" />
+              </div>
+
+              <div style="margin-top: 12px;">
+                <label for="timeline">Timeline</label>
+                <select id="timeline" name="timeline" required>
+                  <option value="" selected disabled>Select a timeline</option>
+                  <option>ASAP</option>
+                  <option>1–2 weeks</option>
+                  <option>2–4 weeks</option>
+                  <option>1–2 months</option>
+                  <option>Flexible</option>
+                </select>
+              </div>
+
+              <div style="margin-top: 12px;">
+                <label for="budget">Budget Range (optional)</label>
+                <select id="budget" name="budget">
+                  <option value="" selected>Prefer not to say</option>
+                  <option>$0–$250</option>
+                  <option>$250–$500</option>
+                  <option>$500–$1,000</option>
+                  <option>$1,000–$2,500</option>
+                  <option>$2,500+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="group">
+              <h2>What do you need?</h2>
+
+              <div class="checks">
+                <label class="check">
+                  <input type="checkbox" name="needs" value="Website (1–3 pages)" />
+                  <div>
+                    <strong>Website (1–3 pages)</strong>
+                    <span>Mobile-friendly site with a contact form and basic SEO.</span>
+                  </div>
+                </label>
+
+                <label class="check">
+                  <input type="checkbox" name="needs" value="Custom software tool" />
+                  <div>
+                    <strong>Custom software tool</strong>
+                    <span>Dashboards, portals, data tools, or internal workflow apps.</span>
+                  </div>
+                </label>
+
+                <label class="check">
+                  <input type="checkbox" name="needs" value="Automation / workflow help" />
+                  <div>
+                    <strong>Automation / workflow help</strong>
+                    <span>Reduce manual work with automation or process improvements.</span>
+                  </div>
+                </label>
+
+                <label class="check">
+                  <input type="checkbox" name="needs" value="Database setup / cleanup" />
+                  <div>
+                    <strong>Database setup / cleanup</strong>
+                    <span>Organize data, improve structure, or support reporting.</span>
+                  </div>
+                </label>
+
+                <label class="check">
+                  <input type="checkbox" name="needs" value="Consulting / on-premise support" />
+                  <div>
+                    <strong>Consulting / on-premise support</strong>
+                    <span>Workstation setup, troubleshooting, and small business IT guidance.</span>
+                  </div>
+                </label>
+
+                <label class="check">
+                  <input type="checkbox" name="needs" value="Monthly support plan" />
+                  <div>
+                    <strong>Monthly support plan</strong>
+                    <span>Ongoing help for updates, fixes, and improvements.</span>
+                  </div>
+                </label>
+              </div>
+
+              <div style="margin-top: 12px;">
+                <label for="details">Project Details</label>
+                <textarea id="details" name="details" placeholder="Describe what you need, current tools, number of pages (if website), any features, and anything else that matters." required></textarea>
+              </div>
+
+              <p class="note">
+                This form opens your email app with your request pre-filled. No account is required.
+              </p>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn primary" type="submit">Send Quote Request</button>
+            <button class="btn" type="reset">Clear</button>
+            <a class="btn" href="index.html">Back to Home</a>
+          </div>
+        </form>
+      </div>
+
+      <footer>
+        <div class="foot">
+          <div>Maxwell Software Solutions LLC | Ohio</div>
+          <div>softwaresolutionsmaxwell@gmail.com</div>
+          <div>© <span id="year"></span> Maxwell Software Solutions LLC</div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function sendQuote(e){
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const business = document.getElementById('business').value.trim();
+      const timeline = document.getElementById('timeline').value.trim();
+      const budget = document.getElementById('budget').value.trim();
+      const details = document.getElementById('details').value.trim();
+
+      const needs = Array.from(document.querySelectorAll('input[name="needs"]:checked'))
+        .map(x => x.value);
+
+      const subject = encodeURIComponent('Quote Request - Maxwell Software Solutions LLC');
+
+      const lines = [
+        'Quote Request',
+        '---------------------------',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Business: ${business || 'N/A'}`,
+        `Timeline: ${timeline}`,
+        `Budget Range: ${budget || 'Prefer not to say'}`,
+        `Requested Services: ${needs.length ? needs.join(', ') : 'Not selected'}`,
+        '',
+        'Project Details:',
+        details
+      ];
+
+      const body = encodeURIComponent(lines.join('\n'));
+      window.location.href = `mailto:softwaresolutionsmaxwell@gmail.com?subject=${subject}&body=${body}`;
+      return false;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Privacy Policy and Terms for Maxwell Software Solutions LLC." />
+  <title>Policies | Maxwell Software Solutions LLC</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --line:rgba(255,255,255,.10);
+      --panel:rgba(255,255,255,.03);
+      --panel2:rgba(0,0,0,.18);
+      --brand:#0ea5e9;
+      --shadow:0 10px 26px rgba(0,0,0,.28);
+      --radius:18px;
+      --max: 980px;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(14,165,233,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(31,58,138,.22), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
+
+    header{
+      position: sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,.62);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 220px;
+    }
+    .mark{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      display:grid;
+      place-items:center;
+      font-weight: 800;
+      letter-spacing: .5px;
+      user-select:none;
+    }
+    .brandtext{ display:flex; flex-direction:column; line-height:1.1; }
+    .brandtext strong{ font-size: 14px; }
+    .brandtext span{ font-size: 12px; color: var(--muted); }
+
+    nav ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    nav a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      display:inline-block;
+    }
+    nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+      border-color: var(--line);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight: 650;
+      font-size: 13px;
+      min-height: 42px;
+      cursor:pointer;
+    }
+    .btn.primary{
+      border-color: rgba(14,165,233,.40);
+      background: linear-gradient(135deg, rgba(14,165,233,.18), rgba(31,58,138,.18));
+    }
+
+    main{ padding: 42px 0 28px; }
+
+    .banner{
+      width: min(820px, 100%);
+      height: auto;
+      display:block;
+      margin: 0 auto 18px;
+    }
+    h1{
+      margin: 10px 0 10px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.10;
+      letter-spacing: -.5px;
+      text-align:center;
+    }
+    .lead{
+      margin: 0 auto 18px;
+      max-width: 75ch;
+      color: var(--muted);
+      font-size: 15px;
+      text-align:center;
+    }
+
+    .panel{
+      border: 1px solid rgba(255,255,255,.10);
+      background: var(--panel);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .toc{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 14px 0 18px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .pill:hover{ color: var(--text); border-color: rgba(255,255,255,.18); }
+
+    h2{
+      margin: 18px 0 8px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    p{ margin: 0 0 10px; color: var(--muted); font-size: 13px; }
+    ul{ margin: 0 0 10px; padding-left: 18px; color: var(--muted); font-size: 13px; }
+    li{ margin: 6px 0; }
+
+    .smallnote{
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer{
+      margin-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 22px 0 40px;
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+
+    @media (max-width: 920px){
+      nav ul{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="index.html" aria-label="Home">
+          <div class="mark">M</div>
+          <div class="brandtext">
+            <strong>Maxwell Software Solutions LLC</strong>
+            <span>Solution Software for Small Business</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#projects">Project Types</a></li>
+            <li><a href="index.html#process">How We Work</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="quote.html">Get a Quote</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <a class="btn primary" href="quote.html">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <img class="banner" src="assets/BannerLogo.png" alt="Maxwell Software Solutions LLC" onerror="this.style.display='none';" />
+
+      <h1>Policies</h1>
+      <p class="lead">
+        This page explains how we handle information, and the basic terms for using this website and engaging our services.
+      </p>
+
+      <div class="panel">
+        <div class="toc" aria-label="On this page">
+          <a class="pill" href="#privacy">Privacy Policy</a>
+          <a class="pill" href="#terms">Terms of Service</a>
+          <a class="pill" href="#disclaimer">Disclaimer</a>
+          <a class="pill" href="#contact">Contact</a>
+        </div>
+
+        <h2 id="privacy">Privacy Policy</h2>
+        <p><strong style="color:var(--text);">Effective date:</strong> <span id="effective"></span></p>
+
+        <p>
+          Maxwell Software Solutions LLC respects your privacy. This policy explains what information we collect, how it is used,
+          and the choices you have.
+        </p>
+
+        <h2>Information We Collect</h2>
+        <ul>
+          <li><strong style="color:var(--text);">Information you provide:</strong> Name, email, business name (optional), and project details when you contact us or request a quote.</li>
+          <li><strong style="color:var(--text);">Basic usage data:</strong> If hosting or analytics are used in the future, we may collect basic information such as browser type and page visits. (We will keep it minimal.)</li>
+        </ul>
+
+        <h2>How We Use Information</h2>
+        <ul>
+          <li>To respond to your inquiries and provide estimates</li>
+          <li>To deliver and support services you request</li>
+          <li>To improve website content and performance</li>
+        </ul>
+
+        <h2>Sharing of Information</h2>
+        <p>
+          We do not sell your information. We may share information only when necessary to deliver services (for example, a hosting provider),
+          or when required by law.
+        </p>
+
+        <h2>Data Retention</h2>
+        <p>
+          We keep inquiry information only as long as needed for communication, estimating, and ongoing support. You may request deletion
+          of your information by contacting us.
+        </p>
+
+        <h2>Security</h2>
+        <p>
+          We take reasonable steps to protect your information. However, no website or email communication can be guaranteed 100% secure.
+          For sensitive information, we will recommend more secure methods of communication when appropriate.
+        </p>
+
+        <h2>Third-Party Links</h2>
+        <p>
+          This website may contain links to third-party websites. We are not responsible for the privacy practices of those websites.
+        </p>
+
+        <h2 id="terms">Terms of Service</h2>
+        <p>
+          By using this website, you agree to the terms below.
+        </p>
+
+        <h2>Website Use</h2>
+        <ul>
+          <li>You may view and use this website for informational purposes.</li>
+          <li>You agree not to misuse the website, attempt unauthorized access, or disrupt service availability.</li>
+        </ul>
+
+        <h2>Estimates and Pricing</h2>
+        <ul>
+          <li>All pricing shown on the website is provided as starting prices or general ranges unless stated otherwise.</li>
+          <li>Final pricing is based on confirmed scope and requirements.</li>
+          <li>Work does not begin until a written agreement or confirmation is in place.</li>
+        </ul>
+
+        <h2>Project Delivery and Changes</h2>
+        <ul>
+          <li>Projects are scoped clearly before work begins.</li>
+          <li>Requests outside the agreed scope may require additional time and cost.</li>
+          <li>Timelines may vary based on client responsiveness and scope changes.</li>
+        </ul>
+
+        <h2>Payments</h2>
+        <p>
+          Payment terms will be defined in a quote, invoice, or service agreement depending on the engagement type.
+        </p>
+
+        <h2>Limitation of Liability</h2>
+        <p>
+          Maxwell Software Solutions LLC is not liable for indirect or incidental damages related to the use of this website or services.
+          Our liability is limited to the amount paid for the specific services provided, unless otherwise required by law.
+        </p>
+
+        <h2 id="disclaimer">Disclaimer</h2>
+        <ul>
+          <li>This website is provided “as is” for informational purposes.</li>
+          <li>Content may be updated at any time without notice.</li>
+          <li>Technical guidance is provided based on available information and does not guarantee specific outcomes in every environment.</li>
+        </ul>
+
+        <h2 id="contact">Contact</h2>
+        <p>
+          If you have questions about these policies, contact:
+        </p>
+        <p>
+          <strong style="color:var(--text);">Maxwell Software Solutions LLC</strong><br />
+          Email: <a href="mailto:softwaresolutionsmaxwell@gmail.com">softwaresolutionsmaxwell@gmail.com</a>
+        </p>
+
+        <p class="smallnote">
+          Note: These policies are intended for a small business launch website and may be updated as services expand or if additional data collection tools are added.
+        </p>
+      </div>
+
+      <footer>
+        <div class="foot">
+          <div>Maxwell Software Solutions LLC | Ohio</div>
+          <div>softwaresolutionsmaxwell@gmail.com</div>
+          <div>© <span id="year"></span> Maxwell Software Solutions LLC</div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Set effective date to today's date (local)
+    const d = new Date();
+    const opts = { year:'numeric', month:'long', day:'numeric' };
+    document.getElementById('effective').textContent = d.toLocaleDateString(undefined, opts);
+  </script>
+</body>
+</html>
