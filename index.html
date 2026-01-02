@@ -6,9 +6,14 @@
   <meta name="description" content="Affordable small business websites, custom software tools, workflow automation, and IT consulting by Maxwell Software Solutions LLC in Ohio." />
   <title>Maxwell Software Solutions LLC | Small Business Websites & Software</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
   <style>
     :root{
+      /* FIXED: invalid hex color */
       --bg:#0b1220;
+
       --text:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.72);
       --line:rgba(255,255,255,.12);
@@ -151,7 +156,10 @@
     .section-title p{ margin:0; color: var(--muted); font-size: 13px; }
 
     /* Hero (simple) */
-    .hero{ padding: 48px 0 10px; }
+    .hero{ 
+      padding: 48px 0 10px;
+      background: radial-gradient(800px 400px at 50% 0%, rgba(255,255,255,.06), transparent 60%);
+    }
     .hero-inner{
       max-width: 980px;
       margin: 0 auto;
@@ -159,6 +167,7 @@
     }
     .hero-banner{
       width: min(720px, 92%);
+      max-width: 720px;
       height:auto;
       display:block;
       margin: 0 auto 18px;
@@ -188,7 +197,7 @@
       font-size: 12px;
     }
 
-    /* Tiles (reduced “card” feel) */
+    /* Tiles */
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -197,8 +206,8 @@
     .tile{
       padding: 16px;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.025);
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.14);
     }
     .tile h3{ margin:0 0 6px; font-size: 14px; }
     .tile p{ margin:0; color: var(--muted); font-size: 13px; }
@@ -213,7 +222,7 @@
       padding: 16px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.14);
+      background: rgba(255,255,255,.035);
     }
     .step strong{ display:block; margin-bottom: 6px; font-size: 13px; }
     .step span{ display:block; color: var(--muted); font-size: 13px; }
@@ -282,7 +291,6 @@
     <section class="hero">
       <div class="container">
         <div class="hero-inner">
-          <!-- Use relative path (no leading slash) since your files are in the same folder -->
           <img class="hero-banner" src="assets/BannerLogo.png" alt="Maxwell Software Solutions LLC banner logo" />
           <h1>Affordable websites and practical software for small businesses.</h1>
           <p class="sub">
@@ -300,7 +308,7 @@
       </div>
     </section>
 
-    <!-- Services (simplified: one grid, 6 items) -->
+    <!-- Services -->
     <section>
       <div class="container">
         <div class="section-title">
@@ -342,7 +350,7 @@
       </div>
     </section>
 
-    <!-- How it works (keep) -->
+    <!-- How it works -->
     <section>
       <div class="container">
         <div class="section-title">
@@ -402,7 +410,6 @@
   </script>
 </body>
 </html>
-
 
 
 
