@@ -12,12 +12,15 @@
       --text:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.72);
       --line:rgba(255,255,255,.12);
-      --shadow:0 12px 30px rgba(0,0,0,.35);
       --radius:18px;
       --max:1120px;
+      --tap:44px;
+      --focus: rgba(14,165,233,.55);
     }
+
     *{ box-sizing:border-box; }
-    html,body{ height:100%; scroll-behavior:smooth; }
+    html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -28,8 +31,30 @@
       color:var(--text);
       line-height:1.55;
     }
+
     a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration: none; }
     .container{ max-width:var(--max); margin:0 auto; padding:0 20px; }
+
+    /* Accessibility */
+    .skip{
+      position:absolute;
+      left:-999px;
+      top:12px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.85);
+      color:var(--text);
+      z-index:999;
+    }
+    .skip:focus{ left:12px; outline:none; box-shadow:0 0 0 3px var(--focus); }
+
+    :focus-visible{
+      outline:none;
+      box-shadow:0 0 0 3px var(--focus);
+      border-radius:12px;
+    }
 
     /* Header */
     header{
@@ -37,7 +62,7 @@
       top:0;
       z-index:30;
       backdrop-filter: blur(12px);
-      background: rgba(11,18,32,.68);
+      background: rgba(11,18,32,.72);
       border-bottom: 1px solid var(--line);
     }
     .nav{
@@ -48,6 +73,7 @@
       gap: 14px;
       flex-wrap: wrap;
     }
+
     .brand{
       display:flex;
       align-items:center;
@@ -55,49 +81,53 @@
       min-width: 240px;
     }
     .brand img{
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      border-radius: 10px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid var(--line);
+      width:40px;
+      height:40px;
+      object-fit:contain;
+      border-radius:10px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      flex: 0 0 auto;
     }
     .brand .name{ display:flex; flex-direction:column; line-height:1.1; }
-    .brand .name strong{ font-size: 14px; letter-spacing:.2px; }
-    .brand .name span{ font-size: 12px; color: var(--muted); }
+    .brand .name strong{ font-size:14px; letter-spacing:.2px; }
+    .brand .name span{ font-size:12px; color:var(--muted); }
 
     nav ul{
       list-style:none;
       padding:0;
       margin:0;
       display:flex;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
       justify-content: center;
+      align-items:center;
     }
     nav a{
-      font-size: 13px;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
+      font-size:13px;
+      color:var(--muted);
+      padding: 10px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
       display:inline-block;
+      min-height: var(--tap);
     }
-    nav a:hover{ color: var(--text); border-color: var(--line); background: rgba(255,255,255,.04); }
+    nav a:hover{ color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04); }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       padding: 10px 14px;
-      border-radius: 14px;
+      border-radius:14px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,.05);
       color: var(--text);
       font-weight: 650;
       font-size: 13px;
-      min-height: 42px;
+      min-height: var(--tap);
       cursor:pointer;
+      white-space: nowrap;
     }
     .btn.primary{
       border-color: rgba(14,165,233,.35);
@@ -105,53 +135,9 @@
     }
     .btn:hover{ border-color: rgba(255,255,255,.22); }
 
-    /* Hero */
-    .hero{ padding: 52px 0 18px; }
-    .hero-inner{
-      max-width: 980px;
-      margin: 0 auto;
-      text-align:center;
-      padding: 10px 0 0;
-    }
-    .hero-banner{
-      width: min(980px, 100%);
-      height: auto;
-      display:block;
-      margin: 0 auto 16px;
-    }
-    .kicker{
-      display:inline-flex;
-      gap: 10px;
-      align-items:center;
-      font-size: 12px;
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      margin-bottom: 10px;
-    }
-    h1{
-      margin: 10px 0 10px;
-      font-size: clamp(26px, 3.2vw, 44px);
-      line-height: 1.12;
-      letter-spacing: -.5px;
-    }
-    .sub{
-      margin: 0 auto 16px;
-      color: var(--muted);
-      font-size: 15px;
-      max-width: 72ch;
-    }
-    .actions{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content:center;
-      margin-top: 10px;
-    }
+    /* Main layout */
+    main{ padding-bottom: 10px; }
 
-    /* Sections */
     section{ padding: 22px 0; }
     .section-title{
       display:flex;
@@ -164,6 +150,45 @@
     .section-title h2{ margin:0; font-size: 18px; letter-spacing:-.2px; }
     .section-title p{ margin:0; color: var(--muted); font-size: 13px; }
 
+    /* Hero (simple) */
+    .hero{ padding: 48px 0 10px; }
+    .hero-inner{
+      max-width: 980px;
+      margin: 0 auto;
+      text-align:center;
+    }
+    .hero-banner{
+      width: min(720px, 92%);
+      height:auto;
+      display:block;
+      margin: 0 auto 18px;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3.2vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -.5px;
+    }
+    .sub{
+      margin: 0 auto 14px;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 70ch;
+    }
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:center;
+      margin-top: 6px;
+    }
+    .note{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Tiles (reduced “card” feel) */
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -172,12 +197,13 @@
     .tile{
       padding: 16px;
       border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.025);
     }
     .tile h3{ margin:0 0 6px; font-size: 14px; }
     .tile p{ margin:0; color: var(--muted); font-size: 13px; }
 
+    /* How it works */
     .steps{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -186,24 +212,18 @@
     .step{
       padding: 16px;
       border-radius: 18px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.14);
     }
     .step strong{ display:block; margin-bottom: 6px; font-size: 13px; }
     .step span{ display:block; color: var(--muted); font-size: 13px; }
 
-    .note{
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
     /* Footer */
     footer{
-      padding: 20px 0 40px;
+      padding: 18px 0 38px;
       color: var(--muted);
       border-top: 1px solid var(--line);
-      margin-top: 18px;
+      margin-top: 12px;
     }
     .footer-row{
       display:flex;
@@ -213,6 +233,8 @@
       flex-wrap: wrap;
     }
     .small{ font-size: 12px; }
+    .small a{ color: var(--muted); }
+    .small a:hover{ color: var(--text); }
 
     /* Responsive */
     @media (max-width: 920px){
@@ -222,15 +244,20 @@
     @media (max-width: 640px){
       .container{ padding:0 16px; }
       nav ul{ justify-content:flex-start; }
+      .brand{ min-width: unset; }
+      .hero{ padding-top: 34px; }
     }
   </style>
 </head>
+
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header>
     <div class="container">
       <div class="nav">
-        <a class="brand" href="index.html" aria-label="Maxwell Software Solutions LLC">
-          <img src="assets/BusinessLogo.png" alt="Maxwell Software Solutions Logo" />
+        <a class="brand" href="index.html" aria-label="Maxwell Software Solutions LLC home">
+          <img src="assets/BusinessLogo.png" alt="Maxwell Software Solutions LLC logo" />
           <div class="name">
             <strong>Maxwell Software Solutions LLC</strong>
             <span>Solution Software for Small Business</span>
@@ -250,37 +277,35 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
+    <!-- Hero -->
     <section class="hero">
       <div class="container">
         <div class="hero-inner">
-          <img class="hero-banner" src="assets/BannerLogo.png" alt="Maxwell Software Solutions LLC" />
-          <div class="kicker">Websites · Software Tools · Automation · IT Consulting</div>
-
+          <!-- Use relative path (no leading slash) since your files are in the same folder -->
+          <img class="hero-banner" src="assets/BannerLogo.png" alt="Maxwell Software Solutions LLC banner logo" />
           <h1>Affordable websites and practical software for small businesses.</h1>
           <p class="sub">
-            Clean, mobile-friendly websites and simple business tools that help you look professional, save time, and support your workflow.
-            Clear communication, transparent pricing, and support available.
+            Clean, mobile-friendly websites and simple business tools that help you look professional,
+            save time, and support your workflow.
           </p>
 
           <div class="actions">
             <a class="btn primary" href="quote.html">Get a Quote</a>
             <a class="btn" href="pricing.html">View Pricing</a>
-            <a class="btn" href="mailto:softwaresolutionsmaxwell@gmail.com?subject=Project%20Inquiry%20-%20Maxwell%20Software%20Solutions">Email</a>
           </div>
 
-          <p class="note">
-            Serving Ohio and remote clients. Typical small business websites available in 1–3 page packages.
-          </p>
+          <p class="note">Serving Ohio and remote clients. Typical small business websites available in 1–3 page packages.</p>
         </div>
       </div>
     </section>
 
+    <!-- Services (simplified: one grid, 6 items) -->
     <section>
       <div class="container">
         <div class="section-title">
           <h2>What We Can Do For Your Business</h2>
-          <p>Simple, useful services you can start with today.</p>
+          <p>Start small. Add more as you grow.</p>
         </div>
 
         <div class="grid" aria-label="Services summary">
@@ -288,25 +313,27 @@
             <h3>Small Business Websites</h3>
             <p>1–3 page sites that build credibility and generate inquiries.</p>
           </div>
+
           <div class="tile">
             <h3>Forms and Simple Tools</h3>
             <p>Quote forms, internal utilities, dashboards, and lightweight systems.</p>
           </div>
+
           <div class="tile">
             <h3>Automation and Cleanup</h3>
             <p>Reduce manual work, organize processes, and improve efficiency.</p>
           </div>
-        </div>
 
-        <div class="grid" style="margin-top:14px;" aria-label="More services summary">
           <div class="tile">
             <h3>Database Support</h3>
-            <p>Basic database setup, structure improvements, and reporting support.</p>
+            <p>Basic setup, structure improvements, and reporting support.</p>
           </div>
+
           <div class="tile">
             <h3>IT Consulting</h3>
             <p>Workstation setup, troubleshooting, and small business PC guidance.</p>
           </div>
+
           <div class="tile">
             <h3>Monthly Support</h3>
             <p>Optional plans for updates, fixes, and ongoing improvements.</p>
@@ -315,6 +342,7 @@
       </div>
     </section>
 
+    <!-- How it works (keep) -->
     <section>
       <div class="container">
         <div class="section-title">
@@ -339,6 +367,7 @@
       </div>
     </section>
 
+    <!-- CTA -->
     <section>
       <div class="container">
         <div class="section-title">
@@ -356,7 +385,7 @@
     <footer>
       <div class="container">
         <div class="footer-row">
-          <div class="small">Maxwell Software Solutions LLC | Ohio</div>
+          <div class="small">Maxwell Software Solutions LLC · Ohio · Small Business Websites & Software</div>
           <div class="small">
             <a href="mailto:softwaresolutionsmaxwell@gmail.com">softwaresolutionsmaxwell@gmail.com</a>
           </div>
@@ -373,6 +402,7 @@
   </script>
 </body>
 </html>
+
 
 
 
