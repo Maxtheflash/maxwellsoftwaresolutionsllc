@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="About Maxwell Software Solutions LLC – small business software, websites, and IT consulting founded by a developer with formal education in computer science, programming, and IT support." />
+  <meta name="description" content="About Maxwell Software Solutions LLC – small business websites, practical software tools, and IT consulting founded by a developer with formal education in computer science, programming, and IT support." />
   <title>About | Maxwell Software Solutions LLC</title>
 
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -15,13 +15,17 @@
       --muted:rgba(255,255,255,.72);
       --line:rgba(255,255,255,.12);
       --radius:18px;
-      --max:900px;
+      --max: 980px;
+      --tap:44px;
+      --focus: rgba(14,165,233,.55);
     }
 
     *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
         radial-gradient(1200px 600px at 10% 10%, rgba(14,165,233,.20), transparent 60%),
         radial-gradient(1200px 600px at 90% 0%, rgba(31,58,138,.25), transparent 55%),
@@ -30,38 +34,103 @@
       line-height:1.6;
     }
 
-    .container{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:40px 20px;
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ color: var(--text); }
+
+    .container{ max-width:var(--max); margin:0 auto; padding:0 20px; }
+
+    /* Accessibility */
+    .skip{
+      position:absolute; left:-999px; top:12px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.85);
+      color:var(--text);
+      z-index:999;
+    }
+    .skip:focus{ left:12px; outline:none; box-shadow:0 0 0 3px var(--focus); }
+    :focus-visible{
+      outline:none;
+      box-shadow:0 0 0 3px var(--focus);
+      border-radius:12px;
     }
 
+    /* Header */
+    header{
+      position: sticky; top:0; z-index:30;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0; gap:14px; flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
+    }
+    .brand img{
+      width:40px; height:40px; object-fit:contain;
+      border-radius:10px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      flex:0 0 auto;
+    }
+    .brand .name{ display:flex; flex-direction:column; line-height:1.1; }
+    .brand .name strong{ font-size:14px; letter-spacing:.2px; }
+    .brand .name span{ font-size:12px; color:var(--muted); }
+
+    nav ul{
+      list-style:none; padding:0; margin:0;
+      display:flex; gap:6px; flex-wrap:wrap;
+      justify-content:center; align-items:center;
+    }
+    nav a{
+      font-size:13px; color:var(--muted);
+      padding:10px 10px; border-radius:12px;
+      border:1px solid transparent;
+      display:inline-block; min-height:var(--tap);
+    }
+    nav a:hover{ color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04); }
+    nav a[aria-current="page"]{
+      color:var(--text);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      font-weight:650; font-size:13px;
+      min-height:var(--tap);
+      cursor:pointer;
+      white-space: nowrap;
+    }
+    .btn.primary{
+      border-color: rgba(14,165,233,.35);
+      background: linear-gradient(135deg, rgba(14,165,233,.18), rgba(31,58,138,.18));
+    }
+    .btn:hover{ border-color: rgba(255,255,255,.22); }
+
+    /* Page */
+    main{ padding: 34px 0 40px; }
     h1{
-      margin:0 0 16px;
+      margin:0 0 10px;
       font-size: clamp(28px, 3vw, 40px);
       letter-spacing:-.5px;
     }
-
-    h2{
-      margin:32px 0 10px;
-      font-size:18px;
-      letter-spacing:-.2px;
-    }
-
-    p{
-      margin:0 0 14px;
+    .lead{
+      margin:0;
       color:var(--muted);
       font-size:14px;
+      max-width: 85ch;
     }
 
-    ul{
-      margin:8px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    li{ margin:6px 0; }
+    .stack{ display:grid; gap: 14px; margin-top: 18px; }
 
     .card{
       padding:20px;
@@ -70,111 +139,162 @@
       background: rgba(255,255,255,.04);
     }
 
-    footer{
-      margin-top:40px;
-      padding-top:20px;
-      border-top:1px solid var(--line);
-      font-size:12px;
-      color:var(--muted);
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
+    h2{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing:-.2px;
     }
 
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ color:#fff; }
+    p{ margin:0 0 12px; color:var(--muted); font-size:14px; }
+    p:last-child{ margin-bottom:0; }
+
+    ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    li{ margin: 6px 0; }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
+    footer{
+      margin-top: 28px;
+      padding: 18px 0 38px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .footer-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      font-size: 12px;
+    }
+    .footer-row a{ color: var(--muted); }
+    .footer-row a:hover{ color: var(--text); }
+
+    @media (max-width: 720px){
+      nav ul{ justify-content:flex-start; }
+      .brand{ min-width: unset; }
+    }
   </style>
 </head>
 
 <body>
-  <main class="container">
-    <h1>About Maxwell Software Solutions LLC</h1>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <div class="card">
-      <p>
-        Maxwell Software Solutions LLC was founded to help small businesses build and maintain
-        reliable, affordable software solutions without unnecessary complexity.
-        The company focuses on clean websites, practical business tools, and technical consulting
-        designed to support real-world workflows.
-      </p>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="Maxwell Software Solutions LLC home">
+          <img src="assets/BusinessLogo.png" alt="Maxwell Software Solutions LLC logo" />
+          <div class="name">
+            <strong>Maxwell Software Solutions LLC</strong>
+            <span>Solution Software for Small Business</span>
+          </div>
+        </a>
 
-      <p>
-        Unlike large agencies, Maxwell Software Solutions LLC emphasizes clear communication,
-        transparent pricing, and solutions that are easy to understand, maintain, and grow over time.
-      </p>
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="quote.html">Get a Quote</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+          </ul>
+        </nav>
+
+        <a class="btn primary" href="quote.html">Get a Quote</a>
+      </div>
     </div>
+  </header>
 
-    <h2>Founder & Technical Background</h2>
-
-    <div class="card">
-      <p>
-        The company is led by a developer with formal education in computer science, programming,
-        and information technology, combining technical depth with a strong understanding of
-        small business needs.
+  <main id="main">
+    <div class="container">
+      <h1>About</h1>
+      <p class="lead">
+        Maxwell Software Solutions LLC helps small businesses launch clean, mobile-friendly websites and build practical tools
+        that support real workflows. My focus is simple: clear communication, transparent scope, and solutions that are easy to maintain.
       </p>
 
-      <p><strong>Associate Degrees</strong></p>
-      <ul>
-        <li>Associate of Technical Studies in Information Technology (Computer Science focus) – December 2024</li>
-        <li>Associate of Business in Computer Programming and Database – December 2025</li>
-        <li>Associate of Business in Help Desk and Computer Support – December 2025</li>
-      </ul>
+      <div class="stack">
+        <div class="card">
+          <h2>Founder Statement</h2>
+          <p>
+            I started Maxwell Software Solutions LLC to give small businesses a straightforward way to get professional results
+            without unnecessary complexity. Whether it’s a small website, a lightweight internal tool, or technical guidance,
+            I aim to keep projects clear, affordable, and easy to support over time.
+          </p>
+          <p>
+            Clients can start with a simple package and expand as needed—so the solution stays aligned with actual business needs.
+          </p>
 
-      <p style="margin-top:14px;"><strong>Career & Technical Certificates (CECs)</strong></p>
-      <ul>
-        <li>Artificial Intelligence Fundamentals – December 2024</li>
-        <li>Artificial Intelligence – December 2024</li>
-        <li>Computer Maintenance and Desktop Support – December 2024</li>
-        <li>Help Desk and Computer Support Specialist – December 2024</li>
-        <li>Microsoft SQL Server – December 2024</li>
-        <li>Computer Science – December 2025</li>
-        <li>Java Programming – December 2025</li>
-        <li>C++ Programming – December 2025</li>
-        <li>Database Systems – December 2025</li>
-      </ul>
+          <div class="ctaRow">
+            <a class="btn primary" href="quote.html">Request a Quote</a>
+            <a class="btn" href="pricing.html">View Pricing</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Education</h2>
+          <p><strong style="color: var(--text);">Associate Degrees</strong></p>
+          <ul>
+            <li>Associate of Technical Studies in Information Technology (Computer Science focus) – Dec 2024</li>
+            <li>Associate of Business in Computer Programming and Database – Dec 2025</li>
+            <li>Associate of Business in Help Desk and Computer Support – Dec 2025</li>
+          </ul>
+
+          <p style="margin-top:14px;"><strong style="color: var(--text);">Career & Technical Certificates (CECs)</strong></p>
+          <ul>
+            <li>Artificial Intelligence Fundamentals – Dec 2024</li>
+            <li>Artificial Intelligence – Dec 2024</li>
+            <li>Computer Maintenance and Desktop Support – Dec 2024</li>
+            <li>Help Desk and Computer Support Specialist – Dec 2024</li>
+            <li>Microsoft SQL Server – Dec 2024</li>
+            <li>Computer Science – Dec 2025</li>
+            <li>Java Programming – Dec 2025</li>
+            <li>C++ Programming – Dec 2025</li>
+            <li>Database Systems – Dec 2025</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Personal & Portfolio Projects</h2>
+          <p>
+            I actively build and maintain portfolio projects to keep skills sharp and validate new tools before recommending them to clients.
+          </p>
+          <p>
+            One example is <strong style="color: var(--text);">Catch Keeper</strong>—a custom application designed to help anglers log catches,
+            track conditions, and organize fishing data. Projects like this provide a practical environment to test workflows, databases,
+            UI patterns, and deployment approaches.
+          </p>
+          <p>
+            Portfolio projects are developed independently and do not interfere with client timelines or service delivery.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>How I Work</h2>
+          <p>
+            I take a service-first approach: confirm scope, build with maintainability in mind, and deliver with clear handoff and optional support.
+            If you’re not sure what you need, I’ll help you choose the simplest option that meets your goals.
+          </p>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-row">
+          <div>Maxwell Software Solutions LLC · Ohio</div>
+          <div><a href="mailto:softwaresolutionsmaxwell@gmail.com">softwaresolutionsmaxwell@gmail.com</a></div>
+          <div><a href="policies.html">Policies</a> · © <span id="year"></span> Maxwell Software Solutions LLC</div>
+        </div>
+      </footer>
     </div>
-
-    <h2>Personal & Portfolio Projects</h2>
-
-    <div class="card">
-      <p>
-        In addition to client work, the founder actively develops personal and portfolio projects
-        to continue learning and applying new technologies.
-      </p>
-
-      <p>
-        One such project is <strong>Catch Keeper</strong>, a custom-built application designed
-        to help anglers log catches, track conditions, and organize fishing data.
-        Projects like this allow new tools, frameworks, and workflows to be tested
-        before being applied to client solutions.
-      </p>
-
-      <p>
-        Personal projects are developed independently and do not interfere with client timelines
-        or service delivery.
-      </p>
-    </div>
-
-    <h2>Approach</h2>
-
-    <div class="card">
-      <p>
-        Maxwell Software Solutions LLC takes a service-first approach.
-        Projects are scoped carefully, built with maintainability in mind,
-        and delivered with documentation and support options available.
-      </p>
-
-      <p>
-        Clients are encouraged to start small and expand over time,
-        ensuring solutions remain affordable and aligned with actual business needs.
-      </p>
-    </div>
-
-    <footer>
-      <div>Maxwell Software Solutions LLC · Ohio</div>
-      <div>© <span id="year"></span> Maxwell Software Solutions LLC</div>
-    </footer>
   </main>
 
   <script>
