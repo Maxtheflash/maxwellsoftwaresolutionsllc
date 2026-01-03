@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Request a project quote from Maxwell Software Solutions LLC. Affordable websites, software tools, and IT consulting for small businesses." />
-  <title>Get a Quote | Maxwell Software Solutions LLC</title>
+  <meta name="description" content="Request a project quote from Maxwell Software Solutions LLC. Small business websites, software tools, and IT consulting." />
+  <title>Request a Quote | Maxwell Software Solutions LLC</title>
 
   <link rel="icon" type="image/png" href="assets/favicon.png">
 
@@ -13,7 +13,7 @@
       --bg:#0b1220;
       --text:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.72);
-      --line:rgba(255,255,255,.14);
+      --line:rgba(255,255,255,.12);
       --radius:18px;
       --max:900px;
       --tap:44px;
@@ -23,190 +23,157 @@
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
         radial-gradient(1200px 600px at 10% 10%, rgba(14,165,233,.20), transparent 60%),
         radial-gradient(1200px 600px at 90% 0%, rgba(31,58,138,.25), transparent 55%),
         var(--bg);
       color:var(--text);
-      line-height:1.55;
+      line-height:1.6;
     }
 
     a{ color:inherit; text-decoration:none; }
-    .container{ max-width:var(--max); margin:0 auto; padding:0 20px; }
+    .container{ max-width:var(--max); margin:0 auto; padding:32px 20px; }
 
     header{
-      position: sticky;
-      top:0;
-      z-index:30;
+      position: sticky; top:0; z-index:30;
       backdrop-filter: blur(12px);
       background: rgba(11,18,32,.72);
       border-bottom: 1px solid var(--line);
     }
-
     .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:12px 0;
-      gap:14px;
-      flex-wrap:wrap;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0; gap:14px; flex-wrap:wrap;
     }
-
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
+      display:flex; align-items:center; gap:12px;
     }
-
     .brand img{
-      width:40px;
-      height:40px;
-      object-fit:contain;
+      width:40px; height:40px; object-fit:contain;
       border-radius:10px;
       background:rgba(255,255,255,.05);
       border:1px solid var(--line);
     }
-
     .brand strong{ font-size:14px; }
-    .brand span{ font-size:12px; color:var(--muted); display:block; }
+    .brand span{ font-size:12px; color:var(--muted); }
 
     nav ul{
-      list-style:none;
-      margin:0;
-      padding:0;
+      list-style:none; padding:0; margin:0;
+      display:flex; gap:6px; flex-wrap:wrap;
+    }
+    nav a{
+      font-size:13px; color:var(--muted);
+      padding:10px; border-radius:12px;
+      border:1px solid transparent;
+      min-height:var(--tap);
+    }
+    nav a:hover{ color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04); }
+    nav a[aria-current="page"]{
+      color:var(--text);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(26px, 3vw, 38px);
+      letter-spacing:-.5px;
+    }
+    p{ color:var(--muted); font-size:14px; }
+
+    .card{
+      margin-top:24px;
+      padding:22px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+
+    label{
+      display:block;
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    input, textarea, select{
+      width:100%;
+      margin-top:6px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.25);
+      color:var(--text);
+      font-size:14px;
+    }
+
+    select option{
+      background:#0b1220;
+      color:#fff;
+    }
+
+    textarea{ min-height:120px; resize:vertical; }
+
+    .checkbox-group{
+      margin-top:10px;
+      display:grid;
+      gap:8px;
+    }
+
+    .checkbox-group label{
       display:flex;
-      gap:6px;
+      align-items:center;
+      gap:10px;
+      font-size:14px;
+      color:var(--text);
+    }
+
+    .checkbox-group input{ width:auto; }
+
+    .actions{
+      margin-top:20px;
+      display:flex;
+      gap:10px;
       flex-wrap:wrap;
     }
 
-    nav a{
-      font-size:13px;
-      color:var(--muted);
-      padding:10px 12px;
-      border-radius:12px;
-    }
-
-    nav a:hover{
-      color:var(--text);
-      background:rgba(255,255,255,.05);
-    }
-
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 14px;
+      padding:10px 16px;
       border-radius:14px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.05);
       color:var(--text);
       font-weight:650;
-      font-size:13px;
-      min-height:var(--tap);
       cursor:pointer;
+      min-height:var(--tap);
     }
-
     .btn.primary{
       border-color: rgba(14,165,233,.35);
       background: linear-gradient(135deg, rgba(14,165,233,.18), rgba(31,58,138,.18));
     }
 
-    section{ padding: 36px 0; }
-
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(26px, 3.2vw, 40px);
-      line-height:1.15;
-    }
-
-    .sub{
-      color:var(--muted);
-      font-size:15px;
-      max-width:65ch;
-    }
-
-    form{
-      margin-top:30px;
-      display:grid;
-      gap:22px;
-    }
-
-    .card{
-      padding:18px;
-      border-radius:18px;
-      background: rgba(255,255,255,.045);
-      border:1px solid var(--line);
-    }
-
-    .card h2{
-      margin:0 0 8px;
-      font-size:16px;
-    }
-
-    label{
-      display:block;
-      font-size:13px;
-      margin-bottom:6px;
-    }
-
-    input, textarea, select{
-      width:100%;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.35);
-      color:var(--text);
-      font-size:14px;
-    }
-
-    textarea{ min-height:120px; resize:vertical; }
-
-    .options{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap:10px;
-      margin-top:10px;
-    }
-
-    .option{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:10px;
-      border-radius:12px;
-      background: rgba(0,0,0,.25);
-      border:1px solid var(--line);
-      font-size:13px;
-    }
-
-    .option input{ width:auto; }
-
     footer{
-      padding: 20px 0 36px;
-      color:var(--muted);
+      margin-top:40px;
+      padding-top:20px;
       border-top:1px solid var(--line);
-    }
-
-    .footer-row{
+      font-size:12px;
+      color:var(--muted);
       display:flex;
       justify-content:space-between;
       flex-wrap:wrap;
-      gap:14px;
-      font-size:12px;
+      gap:10px;
     }
   </style>
 </head>
 
 <body>
-
 <header>
   <div class="container">
     <div class="nav">
       <a class="brand" href="index.html">
-        <img src="assets/BusinessLogo.png" alt="Maxwell Software Solutions logo">
+        <img src="assets/BusinessLogo.png" alt="Maxwell Software Solutions LLC logo" />
         <div>
-          <strong>Maxwell Software Solutions LLC</strong>
+          <strong>Maxwell Software Solutions LLC</strong><br>
           <span>Solution Software for Small Business</span>
         </div>
       </a>
@@ -214,97 +181,84 @@
       <nav>
         <ul>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="quote.html">Get a Quote</a></li>
+          <li><a href="quote.html" aria-current="page">Get a Quote</a></li>
           <li><a href="policies.html">Policies</a></li>
         </ul>
       </nav>
-
-      <a class="btn primary" href="quote.html">Get a Quote</a>
     </div>
   </div>
 </header>
 
-<main>
-  <section>
-    <div class="container">
-      <h1>Request a Project Quote</h1>
-      <p class="sub">
-        Tell me a bit about what you’re looking to build. I’ll review your request and follow up
-        with next steps, questions, or a clear estimate.
-      </p>
+<main class="container">
+  <h1>Request a Project Quote</h1>
+  <p>
+    Provide a few details below and Maxwell Software Solutions LLC will respond
+    with next steps and a clear estimate.
+  </p>
 
-      <form>
-        <div class="card">
-          <h2>Contact Information</h2>
-          <label>Name</label>
-          <input type="text" placeholder="Your name">
+  <form class="card" onsubmit="sendQuote(event)">
+    <label>Name
+      <input id="name" required>
+    </label>
 
-          <label>Email</label>
-          <input type="email" placeholder="you@example.com">
+    <label>Email
+      <input id="email" type="email" required>
+    </label>
 
-          <label>Business Name (optional)</label>
-          <input type="text" placeholder="Your business">
-        </div>
-
-        <div class="card">
-          <h2>What do you need?</h2>
-          <div class="options">
-            <label class="option"><input type="checkbox"> Small business website</label>
-            <label class="option"><input type="checkbox"> Website updates or cleanup</label>
-            <label class="option"><input type="checkbox"> Forms or simple tools</label>
-            <label class="option"><input type="checkbox"> Automation / workflow help</label>
-            <label class="option"><input type="checkbox"> Database support</label>
-            <label class="option"><input type="checkbox"> IT consulting / workstation setup</label>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Budget & Timeline</h2>
-          <label>Approximate budget</label>
-          <select>
-            <option>Select a range</option>
-            <option>$100 – $300</option>
-            <option>$300 – $750</option>
-            <option>$750+</option>
-            <option>Not sure yet</option>
-          </select>
-
-          <label>Desired timeline</label>
-          <select>
-            <option>Flexible</option>
-            <option>1–2 weeks</option>
-            <option>2–4 weeks</option>
-            <option>No rush</option>
-          </select>
-        </div>
-
-        <div class="card">
-          <h2>Project Details</h2>
-          <label>Tell me about your project</label>
-          <textarea placeholder="Describe what you want to build, improve, or fix…"></textarea>
-        </div>
-
-        <div>
-          <button class="btn primary" type="submit">Submit Request</button>
-        </div>
-      </form>
+    <label>What type of project are you interested in?</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" value="Website Design"> Website Design</label>
+      <label><input type="checkbox" value="Forms or Tools"> Forms / Simple Tools</label>
+      <label><input type="checkbox" value="Automation"> Automation / Workflow Help</label>
+      <label><input type="checkbox" value="Database Support"> Database Support</label>
+      <label><input type="checkbox" value="IT Consulting"> IT Consulting</label>
     </div>
-  </section>
+
+    <label>Estimated timeline
+      <select id="timeline">
+        <option>Flexible</option>
+        <option>1–2 weeks</option>
+        <option>2–4 weeks</option>
+        <option>Not sure yet</option>
+      </select>
+    </label>
+
+    <label>Project details
+      <textarea id="details" placeholder="Briefly describe what you need, goals, or questions."></textarea>
+    </label>
+
+    <div class="actions">
+      <button class="btn primary" type="submit">Send Request</button>
+      <button class="btn" type="reset">Clear</button>
+    </div>
+  </form>
+
+  <footer>
+    <div>Maxwell Software Solutions LLC · Ohio</div>
+    <div>© <span id="year"></span> Maxwell Software Solutions LLC</div>
+  </footer>
 </main>
-
-<footer>
-  <div class="container">
-    <div class="footer-row">
-      <div>Maxwell Software Solutions LLC · Ohio</div>
-      <div><a href="mailto:softwaresolutionsmaxwell@gmail.com">softwaresolutionsmaxwell@gmail.com</a></div>
-      <div><a href="policies.html">Policies</a> · © <span id="year"></span></div>
-    </div>
-  </div>
-</footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 
+  function sendQuote(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const timeline = document.getElementById('timeline').value;
+    const details = document.getElementById('details').value;
+
+    const services = [...document.querySelectorAll('input[type=checkbox]:checked')]
+      .map(cb => cb.value).join(', ');
+
+    const subject = encodeURIComponent('Quote Request - Maxwell Software Solutions');
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nServices: ${services}\nTimeline: ${timeline}\n\nDetails:\n${details}`
+    );
+
+    window.location.href = `mailto:softwaresolutionsmaxwell@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>
 </body>
 </html>
