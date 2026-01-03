@@ -6,6 +6,9 @@
   <meta name="description" content="Affordable pricing for small business websites, software tools, automation, and monthly support from Maxwell Software Solutions LLC." />
   <title>Pricing | Maxwell Software Solutions LLC</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
   <style>
     :root{
       --bg:#0b1220;
@@ -13,11 +16,12 @@
       --muted:rgba(255,255,255,.70);
       --line:rgba(255,255,255,.10);
       --panel:rgba(255,255,255,.03);
-      --panel2:rgba(0,0,0,.14);
       --brand:#0ea5e9;
       --shadow:0 10px 26px rgba(0,0,0,.28);
       --radius:18px;
       --max: 980px;
+      --tap: 44px;
+      --focus: rgba(14,165,233,.55);
     }
     *{ box-sizing:border-box; }
     html,body{ height:100%; scroll-behavior:smooth; }
@@ -33,6 +37,18 @@
     }
     a{ color:inherit; text-decoration:none; }
     .container{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
+
+    /* Accessibility */
+    .skip{
+      position:absolute; left:-999px; top:12px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.85);
+      color:var(--text);
+      z-index:999;
+    }
+    .skip:focus{ left:12px; outline:none; box-shadow:0 0 0 3px var(--focus); }
+    :focus-visible{ outline:none; box-shadow:0 0 0 3px var(--focus); border-radius:12px; }
 
     header{
       position: sticky;
@@ -83,15 +99,21 @@
     nav a{
       font-size: 13px;
       color: var(--muted);
-      padding: 8px 10px;
+      padding: 10px 10px;
       border-radius: 12px;
       border: 1px solid transparent;
       display:inline-block;
+      min-height: var(--tap);
     }
     nav a:hover{
       color: var(--text);
       background: rgba(255,255,255,.04);
       border-color: var(--line);
+    }
+    nav a[aria-current="page"]{
+      color: var(--text);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
     }
 
     .btn{
@@ -105,8 +127,9 @@
       color: var(--text);
       font-weight: 650;
       font-size: 13px;
-      min-height: 42px;
+      min-height: var(--tap);
       cursor:pointer;
+      white-space: nowrap;
     }
     .btn.primary{
       border-color: rgba(14,165,233,.40);
@@ -233,6 +256,8 @@
   </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header>
     <div class="container">
       <div class="topbar">
@@ -246,13 +271,10 @@
 
         <nav aria-label="Primary">
           <ul>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#projects">Project Types</a></li>
-            <li><a href="index.html#process">How We Work</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pricing.html" aria-current="page">Pricing</a></li>
             <li><a href="quote.html">Get a Quote</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
         </nav>
 
@@ -261,63 +283,69 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <div class="container">
       <img class="banner" src="assets/BannerLogo.png" alt="Maxwell Software Solutions LLC" onerror="this.style.display='none';" />
 
       <h1>Pricing</h1>
       <p class="lead">
-        Simple, transparent pricing designed for small businesses. Final pricing depends on confirmed scope and requirements.
-        If you’re unsure what you need, request a quote and we’ll recommend the best option.
+        Simple, starter-friendly pricing for small businesses. Final quotes depend on confirmed scope, content, and turnaround time.
+        If you’re not sure what you need, request a quote and we’ll recommend the best option.
       </p>
 
       <div class="panel">
         <!-- Website Packages -->
         <div class="sectionTitle">
           <h2>Website Design Packages</h2>
-          <p>Mobile-friendly, clean layouts built to generate inquiries.</p>
+          <p>Clean, mobile-friendly websites built to generate inquiries.</p>
         </div>
 
-        <div class="grid" aria-label="Website Packages">
+        <div class="grid" aria-label="Website packages">
           <div class="card">
-            <h3>1-Page Website</h3>
-            <p class="price">Starting at $250</p>
-            <p class="muted">A clean single-page business site.</p>
+            <h3>Starter Website</h3>
+            <p class="muted">Best for new businesses or a simple online presence.</p>
+            <p class="price">$149</p>
             <ul>
-              <li>Mobile-friendly design</li>
-              <li>Contact form</li>
-              <li>Basic SEO setup</li>
-              <li>Hosting setup guidance</li>
+              <li>1 professionally designed page</li>
+              <li>Mobile-friendly, responsive layout</li>
+              <li>Core sections (about, services, contact)</li>
+              <li>Contact link or simple form</li>
+              <li>Basic SEO setup (titles + descriptions)</li>
             </ul>
           </div>
 
           <div class="card">
-            <h3>2-Page Website</h3>
-            <p class="price">Starting at $375</p>
-            <p class="muted">More space to explain services and details.</p>
+            <h3>Standard Website</h3>
+            <p class="muted">Most popular option for local businesses.</p>
+            <p class="price">$249</p>
             <ul>
-              <li>Two pages (Home + Services/About)</li>
-              <li>Mobile-friendly design</li>
+              <li>2 professionally designed pages</li>
+              <li>Mobile-friendly, responsive layout</li>
+              <li>Clear navigation and content structure</li>
               <li>Contact form</li>
               <li>Basic SEO setup</li>
+              <li>Improved layout for services or pricing</li>
             </ul>
           </div>
 
           <div class="card">
-            <h3>3-Page Website</h3>
-            <p class="price">Starting at $500</p>
-            <p class="muted">Best for growing small businesses.</p>
+            <h3>Business Website</h3>
+            <p class="muted">Ideal for growing businesses that need more space.</p>
+            <p class="price">$399</p>
             <ul>
-              <li>Three pages (Home, Services, Contact/About)</li>
-              <li>Mobile-friendly design</li>
+              <li>3 professionally designed pages</li>
+              <li>Mobile-friendly, responsive layout</li>
+              <li>Clear content organization</li>
               <li>Contact form</li>
               <li>Basic SEO setup</li>
+              <li>Launch checklist + clean handoff</li>
             </ul>
           </div>
         </div>
 
         <p class="note">
-          Optional add-ons can be quoted as needed (additional pages, extra forms, content updates, and expanded features).
+          Optional add-ons (quoted as needed): additional pages, advanced forms, booking/scheduling integrations, content writing or cleanup,
+          image sourcing/optimization, extended SEO, and third-party integrations.
         </p>
 
         <div class="ctaRow">
@@ -325,90 +353,81 @@
           <a class="btn" href="index.html">Back to Home</a>
         </div>
 
-        <!-- Support Packages -->
+        <!-- Monthly Support -->
         <div class="sectionTitle" style="margin-top: 28px;">
-          <h2>Monthly Support Packages</h2>
-          <p>Ongoing help for updates, fixes, and improvements.</p>
+          <h2>Monthly Support Plans</h2>
+          <p>Lightweight help for updates, fixes, and small improvements.</p>
         </div>
 
-        <div class="grid" aria-label="Support Packages">
+        <div class="grid" aria-label="Support plans">
           <div class="card">
             <h3>Basic Support</h3>
-            <p class="price">$50 / month</p>
-            <p class="muted">For light ongoing help.</p>
+            <p class="muted">Best for small updates and peace of mind.</p>
+            <p class="price">$50 <span style="font-size:12px; color:var(--muted); font-weight:650;">/ month</span></p>
             <ul>
-              <li>Minor updates</li>
-              <li>Small fixes</li>
-              <li>Email support</li>
+              <li>Minor content edits (text/images)</li>
+              <li>Basic troubleshooting</li>
+              <li>General guidance</li>
             </ul>
           </div>
 
           <div class="card">
             <h3>Standard Support</h3>
-            <p class="price">$125 / month</p>
-            <p class="muted">For regular updates and improvements.</p>
+            <p class="muted">For ongoing changes and small improvements.</p>
+            <p class="price">$125 <span style="font-size:12px; color:var(--muted); font-weight:650;">/ month</span></p>
             <ul>
-              <li>Bug fixes</li>
-              <li>Small feature improvements</li>
-              <li>Priority email support</li>
+              <li>Everything in Basic</li>
+              <li>More frequent updates</li>
+              <li>Small feature tweaks (scoped as needed)</li>
             </ul>
           </div>
 
           <div class="card">
             <h3>Priority Support</h3>
-            <p class="price">$200 / month</p>
-            <p class="muted">For faster response and ongoing improvements.</p>
+            <p class="muted">Faster response and higher-priority queue.</p>
+            <p class="price">$200 <span style="font-size:12px; color:var(--muted); font-weight:650;">/ month</span></p>
             <ul>
-              <li>Faster response times</li>
-              <li>Ongoing improvements</li>
-              <li>Priority scheduling</li>
+              <li>Everything in Standard</li>
+              <li>Faster response window</li>
+              <li>Higher-priority requests</li>
+              <li>Proactive improvements (scoped)</li>
             </ul>
           </div>
         </div>
 
-        <!-- Consulting + On-Premise -->
+        <p class="note">Support plans are intended for small changes. Larger features and new builds are quoted separately.</p>
+
+        <!-- IT Consulting -->
         <div class="sectionTitle" style="margin-top: 28px;">
-          <h2>Consulting & On-Premise Support</h2>
-          <p>Hands-on technical help for small businesses.</p>
+          <h2>IT Consulting</h2>
+          <p>Professional workstation setup and small business tech guidance.</p>
         </div>
 
-        <div class="twoCol" aria-label="Consulting and On-Premise">
-          <div class="card">
-            <h3>Consulting</h3>
-            <p class="muted">Starting at <strong style="color:var(--text);">$75/hour</strong></p>
-            <ul>
-              <li>Planning and recommendations</li>
-              <li>Technical troubleshooting</li>
-              <li>Software guidance and setup</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>On-Premise Help</h3>
-            <p class="muted">Priced by scope and location</p>
-            <ul>
-              <li>Workstation setups</li>
-              <li>Software installation & configuration</li>
-              <li>Small business PC consulting</li>
-            </ul>
-          </div>
+        <div class="card" aria-label="IT consulting">
+          <p class="muted" style="margin:0;">
+            IT consulting is available to support small business technology needs, including workstation setup and configuration,
+            software guidance, and general troubleshooting. Engagements are scoped to your requirements and budget.
+            Contact us to discuss your needs and receive a customized estimate.
+          </p>
         </div>
 
-        <!-- Hosting -->
+        <!-- Hosting & Domains -->
         <div class="sectionTitle" style="margin-top: 28px;">
-          <h2>Hosting Costs</h2>
-          <p>Hosting is billed separately based on your needs.</p>
+          <h2>Hosting & Domains</h2>
+          <p>Hosting is typically billed directly by the provider.</p>
         </div>
 
-        <div class="card" aria-label="Hosting Costs">
-          <p class="muted" style="margin-bottom: 10px;">
-            Typical hosting costs range from <strong style="color:var(--text);">$10–$25/month</strong> for small business websites.
-            Web applications may vary depending on features and requirements.
+        <div class="card" aria-label="Hosting and domains">
+          <p class="muted" style="margin:0 0 10px;">
+            If you already have hosting, we can deploy to your existing setup. If you need hosting, we’ll recommend an affordable provider and help you launch.
+            Hosting and domain costs are usually pass-through charges (you pay the provider).
           </p>
           <ul>
-            <li>We assist with setup, configuration, and deployment</li>
-            <li>We can recommend a plan based on your project</li>
-            <li>Support plans can cover ongoing updates and maintenance</li>
+            <li>Domain name: typically $10–$20/year (varies by domain)</li>
+            <li>Basic hosting: depends on provider and plan</li>
+            <li>Optional setup help: quoted if needed</li>
           </ul>
+          <p class="note">If you want “done-for-you” setup, include it when you request a quote.</p>
         </div>
 
         <p class="note">
@@ -433,3 +452,4 @@
   </script>
 </body>
 </html>
+
