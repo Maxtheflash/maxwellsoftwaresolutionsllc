@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="About Maxwell Software Solutions LLC – small business software, websites, and IT consulting founded by a developer with formal education in computer science, programming, and IT support." />
+  <title>About | Maxwell Software Solutions LLC</title>
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.12);
+      --radius:18px;
+      --max:900px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(14,165,233,.20), transparent 60%),
+        radial-gradient(1200px 600px at 90% 0%, rgba(31,58,138,.25), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:40px 20px;
+    }
+
+    h1{
+      margin:0 0 16px;
+      font-size: clamp(28px, 3vw, 40px);
+      letter-spacing:-.5px;
+    }
+
+    h2{
+      margin:32px 0 10px;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+
+    p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    ul{
+      margin:8px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    li{ margin:6px 0; }
+
+    .card{
+      padding:20px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+
+    footer{
+      margin-top:40px;
+      padding-top:20px;
+      border-top:1px solid var(--line);
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ color:#fff; }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <h1>About Maxwell Software Solutions LLC</h1>
+
+    <div class="card">
+      <p>
+        Maxwell Software Solutions LLC was founded to help small businesses build and maintain
+        reliable, affordable software solutions without unnecessary complexity.
+        The company focuses on clean websites, practical business tools, and technical consulting
+        designed to support real-world workflows.
+      </p>
+
+      <p>
+        Unlike large agencies, Maxwell Software Solutions LLC emphasizes clear communication,
+        transparent pricing, and solutions that are easy to understand, maintain, and grow over time.
+      </p>
+    </div>
+
+    <h2>Founder & Technical Background</h2>
+
+    <div class="card">
+      <p>
+        The company is led by a developer with formal education in computer science, programming,
+        and information technology, combining technical depth with a strong understanding of
+        small business needs.
+      </p>
+
+      <p><strong>Associate Degrees</strong></p>
+      <ul>
+        <li>Associate of Technical Studies in Information Technology (Computer Science focus) – December 2024</li>
+        <li>Associate of Business in Computer Programming and Database – December 2025</li>
+        <li>Associate of Business in Help Desk and Computer Support – December 2025</li>
+      </ul>
+
+      <p style="margin-top:14px;"><strong>Career & Technical Certificates (CECs)</strong></p>
+      <ul>
+        <li>Artificial Intelligence Fundamentals – December 2024</li>
+        <li>Artificial Intelligence – December 2024</li>
+        <li>Computer Maintenance and Desktop Support – December 2024</li>
+        <li>Help Desk and Computer Support Specialist – December 2024</li>
+        <li>Microsoft SQL Server – December 2024</li>
+        <li>Computer Science – December 2025</li>
+        <li>Java Programming – December 2025</li>
+        <li>C++ Programming – December 2025</li>
+        <li>Database Systems – December 2025</li>
+      </ul>
+    </div>
+
+    <h2>Personal & Portfolio Projects</h2>
+
+    <div class="card">
+      <p>
+        In addition to client work, the founder actively develops personal and portfolio projects
+        to continue learning and applying new technologies.
+      </p>
+
+      <p>
+        One such project is <strong>Catch Keeper</strong>, a custom-built application designed
+        to help anglers log catches, track conditions, and organize fishing data.
+        Projects like this allow new tools, frameworks, and workflows to be tested
+        before being applied to client solutions.
+      </p>
+
+      <p>
+        Personal projects are developed independently and do not interfere with client timelines
+        or service delivery.
+      </p>
+    </div>
+
+    <h2>Approach</h2>
+
+    <div class="card">
+      <p>
+        Maxwell Software Solutions LLC takes a service-first approach.
+        Projects are scoped carefully, built with maintainability in mind,
+        and delivered with documentation and support options available.
+      </p>
+
+      <p>
+        Clients are encouraged to start small and expand over time,
+        ensuring solutions remain affordable and aligned with actual business needs.
+      </p>
+    </div>
+
+    <footer>
+      <div>Maxwell Software Solutions LLC · Ohio</div>
+      <div>© <span id="year"></span> Maxwell Software Solutions LLC</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
